@@ -1,39 +1,70 @@
-const Churro = require('../models/churro')
+// create our controllers here
+//CRUD => Find all, Find by ID, Finding by linked items (publisher>book, user>task,Bond villain>movie)
 
-const getChurros = async (req, res) =>{
-    try{
-        const churros = await Churro.find()
-        return res.status(200).json({churros})
-    } catch (e){
-        return res.status(500).send(e.message);
-    }
+const { Media } = require('../models')
+const { db } = require('mongodb')
+
+//C -> Create (New)
+//R -> Read (Find)
+//U -> Update (Edit)
+//D -> Delete (Remove)
+
+const getMedia = async (req, res) => {
+  try {
+    const medias = await Media.find()
+    return res.status(200).json({ medias })
+    res.send(medias)
+  } catch (error) {
+    return res.status(500).send(error.message)
+    throw error
+  }
 }
 
-const createChurro = async(req, res) =>{
-    try{
-        const churro = await new Churro(req.body)
-        await churro.save()
-        return res.status(201).json({
-            churro,
-        });
-    }catch (e){
-        return res.status(500).json({error: e.message})
-    }
+const getMediaById = async (req, res) => {
+  try {
+    const media = await Media.findById(req.params.id)
+    return res.status(200).json({ media })
+  } catch (error) {
+    throw error
+  }
 }
 
-const getChurroById = async (req, res) =>{
-    try{
-        const {id} = req.params;
-        const churro = await Churro.findById(id)
-        if(churro) {
-            return res.status(200).json({churro})
-        }        
-        return res.status(404).send('Churro with the specified ID does not exist')
-    }catch(e){
-        return res.status(500).send(e.message)
-    }
+const createMedia = async (req, res) => {
+  try {
+    const newMedia = await Media.create(req.body)
+    await newMedia.save()
+    return res.status(201).json({ newMedia })
+  } catch (error) {
+    throw error
+  }
 }
 
+const updateMedia = async (req, res) => {
+  try {
+    const mediaId = req.params.objectId
+    const updatedMedia = await Media.update(req.body, {
+      where: { id: mediaId },
+      returning: true
+    })
+    res.send(updatedMedia)
+  } catch (error) {
+    throw error
+  }
+}
+
+const deleteMedia = async (req, res) => {
+  try {
+    const mediaId = req.params.objectId
+    await Media.destroy({ where: { id: mediaId } })
+    res.send({ msg: 'object with ID ${mediaId} deleted' })
+  } catch (error) {
+    throw error
+  }
+}
 module.exports = {
-    getChurros, createChurro, getChurroById
+  getMedia,
+  getMediaById,
+  createMedia,
+  updateMedia,
+  deleteMedia
 }
