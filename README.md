@@ -1,4 +1,4 @@
-# Watcher-List
+# Watchr-List
 ### Author: Andres Bolivar
 ## [Instagram](http://www.instagram.com/dredose) || [LinkedIn](http://www.linkedin.com/in/drebolivar) || [GitHub](https://github.com/drebolivar)
 ### Date: 07/24/22
@@ -24,7 +24,7 @@ difficult movie night trying to figure out what to watch.
 
 ## **_Links_**
 
-- [Trello/Tasks](https://trello.com/b/C1RYLBTY/watcher-list)
+- [Trello/Tasks](https://trello.com/b/C1RYLBTY/watchr-list)
 - Component Hierarchy Diagram (in repo)
 - Entity Relationship Diagram (in repo)
 
