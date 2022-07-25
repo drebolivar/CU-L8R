@@ -11,8 +11,8 @@ const { db } = require('mongodb')
 
 const getMedia = async (req, res) => {
   try {
-    const medias = await Media.find()
-    res.send(medias)
+    const media = await Media.find()
+    res.send(media)
   } catch (error) {
     throw error
   }
@@ -20,16 +20,20 @@ const getMedia = async (req, res) => {
 
 const getMediaById = async (req, res) => {
   try {
-    const media = await Media.findById(req.params.id)
-    return res.status(200).json({ media })
+    const { id } = req.params
+    const media = await Media.findById(id)
+    if (media) {
+      return res.status(200).json({ media })
+    }
+    return res.status(404).send('Media with the specified ID does not exists')
   } catch (error) {
-    throw error
+    return res.status(500).send(error.message)
   }
 }
 
 const createMedia = async (req, res) => {
   try {
-    const newMedia = await Media.create(req.body)
+    const newMedia = await new Media(req.body)
     await newMedia.save()
     return res.status(201).json({ newMedia })
   } catch (error) {
@@ -39,24 +43,25 @@ const createMedia = async (req, res) => {
 
 const updateMedia = async (req, res) => {
   try {
-    const mediaId = req.params.objectId
-    const updatedMedia = await Media.update(req.body, {
-      where: { _id: mediaId },
-      returning: true
+    const media = await Media.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
     })
-    res.send(updatedMedia)
+    res.status(200).json(media)
   } catch (error) {
-    throw error
+    return res.status(500).send(error.message)
   }
 }
 
 const deleteMedia = async (req, res) => {
   try {
-    const mediaId = req.params.objectId
-    await Media.destroy({ where: { id: mediaId } })
-    res.send({ msg: 'object with ID ${mediaId} deleted' })
+    const { id } = req.params
+    const deleted = await Media.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Cross it off the list')
+    }
+    throw new Error('Media not found')
   } catch (error) {
-    throw error
+    return res.status(500).send(error.message)
   }
 }
 module.exports = {
