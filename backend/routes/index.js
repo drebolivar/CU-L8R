@@ -1,13 +1,13 @@
 const { Router } = require('express')
-const controller = require('../controller')
+const controllers = require('../controller')
 const router = Router()
 
 router.get('/', (req, res) => res.send(`Who watches the Watchers?`))
 
-router.get('/media', controller.getMedia)
-router.get('/media/:id', controller.getMediaById)
-router.post('/media', controller.createMedia)
-router.put('/media/:id', controller.updateMedia)
-router.delete('/media/:id', controller.deleteMedia)
+router.get('/media', controllers.getMedia)
+router.get('/media/:id', controllers.getMediaById)
+router.post('/media', controllers.createMedia)
+router.put('/media/:id', controllers.updateMedia)
+router.delete('/media/:id', controllers.deleteMedia)
 
 module.exports = router

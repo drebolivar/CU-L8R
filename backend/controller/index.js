@@ -12,10 +12,8 @@ const { db } = require('mongodb')
 const getMedia = async (req, res) => {
   try {
     const medias = await Media.find()
-    return res.status(200).json({ medias })
     res.send(medias)
   } catch (error) {
-    return res.status(500).send(error.message)
     throw error
   }
 }
@@ -43,7 +41,7 @@ const updateMedia = async (req, res) => {
   try {
     const mediaId = req.params.objectId
     const updatedMedia = await Media.update(req.body, {
-      where: { id: mediaId },
+      where: { _id: mediaId },
       returning: true
     })
     res.send(updatedMedia)
