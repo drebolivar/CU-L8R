@@ -16,17 +16,17 @@ const main = async () => {
     },
     {
       title: 'Childs Play 3',
-      genre: ['horror'],
+      genre: ['horror', ''],
       year: '1991',
       description: '',
-      platform: ['Tubi'],
+      platform: ['Tubi', 'Netflix'],
       img: '',
       mediamark: ''
     }
   ]
 
   await Media.insertMany(media)
-  console.log('Created Watchlist!')
+  console.log('Created Watchrlist!')
 }
 const run = async () => {
   await main()
