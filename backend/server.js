@@ -20,13 +20,13 @@ app.get('/*', (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)
 })
 
-app.post('/issues', async (req, res) => {
+app.post('/media', async (req, res) => {
   console.log('here is the body', req.body)
-  let newIssue = await Issue.create(req.body)
-  res.send(newIssue)
+  let newMedia = await Media.create(req.body)
+  res.send(newMedia)
 })
 
-app.put('/issues/:id')
-app.delete('/issues/:id')
+app.put('/media/:id')
+app.delete('/media/:id')
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))

@@ -57,7 +57,7 @@ const deleteMedia = async (req, res) => {
     const { id } = req.params
     const deleted = await Media.findByIdAndDelete(id)
     if (deleted) {
-      return res.status(200).send('Cross it off the list')
+      return res.status(200).send('Crossed off the list')
     }
     throw new Error('Media not found')
   } catch (error) {
@@ -65,9 +65,9 @@ const deleteMedia = async (req, res) => {
   }
 }
 
-const updateMediaGenre = async (req, res) => {
+const updateMediaMood = async (req, res) => {
   try {
-    const newGenres = await Media.findByIdAndUpdate(
+    const newMood = await Media.findByIdAndUpdate(
       { _id: req.params.id },
       { $push: { genre: req.body.genre } }
     )
@@ -81,6 +81,6 @@ module.exports = {
   getMediaById,
   createMedia,
   updateMedia,
-  updateMediaGenre,
+  updateMediaMood,
   deleteMedia
 }

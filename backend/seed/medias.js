@@ -7,21 +7,16 @@ const main = async () => {
   const media = [
     {
       title: 'Selena',
-      genre: ['biography', 'romance', 'music'],
-      year: '1997',
-      description: '',
-      platform: '',
-      img: '',
-      mediamark: ''
+      mood: 'Date Night',
+      platform: 'Google Play',
+      notes:
+        'Alisa always wants to watch this, so make sure to put it on should you ever need to'
     },
     {
       title: 'Childs Play 3',
-      genre: ['horror'],
-      year: '1991',
-      description: '',
-      platform: ['Tubi', 'Netflix'],
-      img: '',
-      mediamark: ''
+      mood: 'Spoopy',
+      platform: 'Tubi',
+      notes: 'Gotta watch with Geoff'
     }
   ]
 
