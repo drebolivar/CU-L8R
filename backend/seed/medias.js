@@ -16,7 +16,7 @@ const main = async () => {
     },
     {
       title: 'Childs Play 3',
-      genre: ['horror', ''],
+      genre: ['horror'],
       year: '1991',
       description: '',
       platform: ['Tubi', 'Netflix'],

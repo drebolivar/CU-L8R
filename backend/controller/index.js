@@ -64,10 +64,23 @@ const deleteMedia = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+
+const updateMediaGenre = async (req, res) => {
+  try {
+    const newGenres = await Media.findByIdAndUpdate(
+      { _id: req.params.id },
+      { $push: { genre: req.body.genre } }
+    )
+    res.json({ newGenres })
+  } catch (error) {
+    throw error
+  }
+}
 module.exports = {
   getMedia,
   getMediaById,
   createMedia,
   updateMedia,
+  updateMediaGenre,
   deleteMedia
 }
