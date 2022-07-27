@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-.dataList {
+.watchrList {
   display: flex;
   flex-direction: column-reverse;
 }

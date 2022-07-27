@@ -69,9 +69,9 @@ const updateMediaMood = async (req, res) => {
   try {
     const newMood = await Media.findByIdAndUpdate(
       { _id: req.params.id },
-      { $push: { genre: req.body.genre } }
+      { $push: { mood: req.body.mood } }
     )
-    res.json({ newGenres })
+    res.json({ newMood })
   } catch (error) {
     throw error
   }

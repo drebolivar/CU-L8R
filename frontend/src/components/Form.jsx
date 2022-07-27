@@ -1,9 +1,6 @@
 import '../App.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
-// import Header from './components/Header'
-// import About from './pages/About'
 
 const Form = () => {
   const [media, setMedia] = useState([])
@@ -46,7 +43,8 @@ const Form = () => {
     console.log(formState)
     setFormState(initialState)
     setSubmitted(true)
-    event.target.reset()
+    window.location.reload(false);
+
   }
 
   return (
@@ -71,7 +69,7 @@ const Form = () => {
           <option value="Stonesy Bonesy">Stonesy Bonesy</option>
         </select>
         <p></p>
-        <select id="mood" onChange={handleChange} value={formState.platform}>
+        <select id="platform" onChange={handleChange} value={formState.platform}>
           <option>Where are you watching?</option>
           <option value="In Theaters">In Theaters</option>
           <option value="Video On Demand">Video On Demand</option>

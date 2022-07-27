@@ -2,6 +2,7 @@ import '../App.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import Form from './Form'
 
 const List = () => {
   const [media, setMedia] = useState([])
@@ -33,19 +34,19 @@ const List = () => {
     getMedia()
   }, [submitted])
 
-  const handleChange = (event) => {
-    setFormState({ ...formState, [event.target.id]: event.target.value })
-  }
+  // const handleChange = (event) => {
+  //   setFormState({ ...formState, [event.target.id]: event.target.value })
+  // }
  
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    let res = await axios.post('http://localhost:3001/api/media', formState)
-    console.log(res)
-    console.log(formState)
-    setFormState(initialState)
-    setSubmitted(true)
-    event.target.reset()
-  }
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault()
+  //   let res = await axios.post('http://localhost:3001/api/media', formState)
+  //   console.log(res)
+  //   console.log(formState)
+  //   setFormState(initialState)
+  //   setSubmitted(true)
+  //   event.target.reset()
+  // }
 
   return (
       <div className="watchrList">
