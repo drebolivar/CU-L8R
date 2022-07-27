@@ -9,21 +9,27 @@ function App() {
     title: '',
     mood: '',
     platform: '',
-    note: ''
+    notes: ''
   }
   const [formState, setFormState] = useState(initialState)
+  const [submitted, setSubmitted] = useState(true)
 
   useEffect(() => {
     const getMedia = async () => {
       try {
-        let res = await axios.get('http://localhost:3001/api/media')
-        setMedia(res.data)
+        if (submitted) {
+          let res = await axios.get('http://localhost:3001/api/media')
+          setMedia(res.data)
+          setSubmitted(false)
+          // formState('')
+          // setFormState('')
+        }
       } catch (error) {
         console.log(error)
       }
     }
     getMedia()
-  }, [])
+  }, [submitted])
 
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
@@ -36,65 +42,63 @@ function App() {
     console.log(res)
     console.log(formState)
     setFormState(initialState)
+    setSubmitted(true)
+    event.target.reset()
   }
 
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Title</label>
+        <label htmlFor="title">Title:</label>
         <input
           type="text"
           id="title"
           onChange={handleChange}
-          value={formState.subject}
+          value={formState.title}
         />
-        <label htmlFor="mood">Mood:</label>
-        <select id="mood" onChange={handleChange} value={formState.issueType}>
-          <option value="Spoopy">Spoopy</option>
+        <br></br>
+        <label htmlFor="mood">Ideal for: </label>
+        <checkbox id="mood" onChange={handleChange} value={formState.mood}>
+          <option>What mood is this ideal for?</option>
+          <option value="Spoopy Scaries">Spoopy Scaries</option>
           <option value="Date Night">Date Night</option>
           <option value="Group Watch">Group Watch</option>
-          <option value="On Mute">On Mute</option>
-        </select>
-        <label htmlFor="platform">Platform:</label>
+          <option value="Background Noise">Background Noise</option>
+          <option value="Film School Homework">Film School Homework</option>
+          <option value="Stonesy Bonesy">Stonesy Bonesy</option>
+        </checkbox>
+        <p></p>
+        <label htmlFor="platform">Watch it on: </label>
         <input
           type="text"
           id="platform"
           onChange={handleChange}
-          value={formState.subject}
+          value={formState.platform}
         />
-        <label htmlFor="notes">Notes</label>
+        <p></p>
+        <label htmlFor="notes">Notes: </label>
         <textarea
           id="notes"
           cols="30"
           rows="10"
           onChange={handleChange}
-          value={formState.message}
+          value={formState.notes}
         ></textarea>
+        <p></p>
         <button type="submit">Send</button>
       </form>
       <h1>Watchr List:</h1>
-      {media.map((media) => (
-        <div key={media._id}>
-          <h3>Title: {media.title}</h3>
-          <p>Mood: {media.mood}</p>
-          <p>Platform: {media.platform}</p>
-          <p>Notes: {media.notes}</p>
-        </div>
-      ))}
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div className="dataList">
+        {media.map((media) => (
+          <div key={media._id}>
+            <h3>Title: {media.title}</h3>
+            <p>Mood: {media.mood}</p>
+            <p>Platform: {media.platform}</p>
+            <p>Notes: {media.notes}</p>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
