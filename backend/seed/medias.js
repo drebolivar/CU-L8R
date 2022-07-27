@@ -14,7 +14,7 @@ const main = async () => {
     },
     {
       title: 'Childs Play 3',
-      mood: 'Spoopy',
+      mood: 'Spoopy Scary',
       platform: 'Tubi',
       notes: 'Gotta watch with Geoff'
     }

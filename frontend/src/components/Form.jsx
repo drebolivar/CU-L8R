@@ -1,8 +1,56 @@
-const Form = (props) => {
+import '../App.css'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
+// import Header from './components/Header'
+// import About from './pages/About'
 
-return(
+const Form = () => {
+  const [media, setMedia] = useState([])
+  const initialState = {
+    title: '',
+    mood: '',
+    platform: '',
+    notes: ''
+  }
+  const [formState, setFormState] = useState(initialState)
+  const [submitted, setSubmitted] = useState(true)
 
-<div className="App">
+  let navigate = useNavigate()
+
+  useEffect(() => {
+    const getMedia = async () => {
+      try {
+        if (submitted) {
+          let res = await axios.get('http://localhost:3001/api/media')
+          setMedia(res.data)
+          setSubmitted(false)
+          formState('')
+          setFormState('')
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getMedia()
+  }, [submitted])
+
+  const handleChange = (event) => {
+    setFormState({ ...formState, [event.target.id]: event.target.value })
+  }
+ 
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    let res = await axios.post('http://localhost:3001/api/media', formState)
+    console.log(res)
+    console.log(formState)
+    setFormState(initialState)
+    setSubmitted(true)
+    event.target.reset()
+  }
+
+  return (
+    <div className="Form">
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title:</label>
         <input
@@ -12,7 +60,7 @@ return(
           value={formState.title}
         />
         <br></br>
-        <label htmlFor="mood">Mood</label>
+        <label htmlFor="mood">Ideal for: </label>
         <select id="mood" onChange={handleChange} value={formState.mood}>
           <option>What mood is this ideal for?</option>
           <option value="Spoopy Scaries">Spoopy Scaries</option>
@@ -23,17 +71,17 @@ return(
           <option value="Stonesy Bonesy">Stonesy Bonesy</option>
         </select>
         <p></p>
-        <label htmlFor="platform">Platform</label>
-        <select id="platform" onChange={handleChange} value={formState.mood}>
-          <option>How are you watching?</option>
-          <option value="Theater">Theater</option>
-          <option value="Physical Copy">Physical Copy</option>
-          <option value="VOD">Video On Demand</option>
+        <select id="mood" onChange={handleChange} value={formState.platform}>
+          <option>Where are you watching?</option>
+          <option value="In Theaters">In Theaters</option>
+          <option value="Video On Demand">Video On Demand</option>
           <option value="Netflix">Netflix</option>
           <option value="Hulu">Hulu</option>
-          <option value="Amazon Prime">Amazon Prime Video</option>
+          <option value="YouTube">YouTube</option>
+          <option value="Prime Video">Prime Video</option>
           <option value="Disney+">Disney+</option>
-          <option value="Undetermined">Not sure right now</option>
+          <option value="Paramount +">Paramount +</option>
+          <option value="Shudder">Shudder</option>
         </select>
         <p></p>
         <label htmlFor="notes">Notes: </label>
@@ -47,8 +95,20 @@ return(
         <p></p>
         <button type="submit">Send</button>
       </form>
-      </div>
-)
+      {/* <h1>Watchr List:</h1>
+
+      <div className="dataList">
+        {media.map((media) => (
+          <div key={media._id}>
+            <h3>Title: {media.title}</h3>
+            <p>Mood: {media.mood}</p>
+            <p>Platform: {media.platform}</p>
+            <p>Notes: {media.notes}</p>
+          </div>
+        ))}
+      </div> */}
+    </div>
+  )
 }
 
 export default Form
