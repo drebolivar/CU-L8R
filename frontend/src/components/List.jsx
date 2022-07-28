@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import Form from './Form'
-import Edit from './Edit'
 
 const List = () => {
   const [media, setMedia] = useState([])
@@ -48,12 +47,16 @@ const List = () => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
 
-  const handleUpdate = async (_id, media) => {
-    const res = await axios
-      .put(`http://localhost:3001/api/media/${_id}`, {notes} )
-      .then((res) =>console.log(res.status))
-      .catch((error) => console.log(error))
+  // const handleUpdate = async (_id, media) => {
+  //   const res = await axios
+  //     .put(`http://localhost:3001/api/media/${_id}`, {notes} )
+  //     .then((res) =>console.log(res.status))
+  //     .catch((error) => console.log(error))
+
+  const handleUpdate = (media) => {
+    navigate('../Update', { state: { id: media } })
   }
+  
  
   // const handleSubmit = async (event) => {
   //   event.preventDefault()
@@ -67,16 +70,6 @@ const List = () => {
 
   return (
       <div className="watchrList">
-        <Form />
-        <form onSubmit={''}>
-        <label htmlFor="Edit Note">Edit Note</label>
-        <input
-          type="text"
-          placeholder="New Notes Here"
-          id="notes"
-          onChange={(event) => setNotes(event.target.value)}
-          value={notes}
-        /></form>
         {media.map((media) => (
           <div key={media._id}>
             <h3>Title: {media.title}</h3>
@@ -87,12 +80,11 @@ const List = () => {
       </div>
             <button onClick={() => {
               handleDelete(media._id)}}> Delete </button>
-              <button onClick={() => {
-              handleUpdate(media._id, notes)}}> Edit </button>
+              <button onClick={() => handleUpdate(media)}> 
+              Edit </button>
           </div>
         ))}
       </div>
   )
 }
-
 export default List

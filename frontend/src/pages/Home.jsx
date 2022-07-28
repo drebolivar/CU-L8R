@@ -8,7 +8,7 @@ import List from '../components/List'
 const Home = () => {
   return (
   <div className='grid-main'>
-    {/* <div className='grid-form'><Form /></div> */}
+    <div className='grid-form'><Form /></div>
     <div className='grid-list'><List /></div>
   </div>
   )
