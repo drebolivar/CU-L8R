@@ -1,15 +1,49 @@
 .App {
   text-align: center;
+  background-color: darksalmon;
 }
 .watchrList {
-  display: flex;
-  flex-direction: column-reverse;
+  display:grid;
+  grid-template-columns: 5fr 5fr 5fr;
+  background-color: cadetblue;
+  text-align: center;
+}
+.Form{
+  justify-content: right;
+  background-image: url("https://freight.cargo.site/w/885/i/3188f12e08a3c9b733a6e176967631e87189869d109fc8a1c85219203a39398d/Screen-Shot-2020-02-07-at-11.16.50-AM.png");
+  background-size:cover
 }
 
 header {
-  background-color: #212121;
+  background-color: #f04b4b;
   display: flex;
+  flex: content ;
   justify-content: flex-end;
   align-items: center;
   height: 3em;
+}
+
+nav {
+padding: 80px;
+}
+
+a {
+  color:gold;
+}
+
+.grid-main {
+text-align: right;
+display: grid;
+grid-template-columns: 2 fr 1fr;
+}
+
+.grid-list{
+  grid-column: 1;
+  text-align: left
+}
+
+.grid-form{
+  grid-column: 1;
+  text-align:left;
+  background-color: burlywood;
 }
