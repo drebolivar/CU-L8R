@@ -70,18 +70,18 @@ const List = () => {
 
   return (
       <div className="watchrList">
+        {/* <Form /> */}
         {media.map((media) => (
-          <div key={media._id}>
-            <h3>Title: {media.title}</h3>
-            <p>Mood: {media.mood}</p>
-            <p>Platform: {media.platform}</p>
+          <div className="cards" key={media._id}>
+            <div className="buttondiv"><button className="watchedbttn" onClick={() => {
+              handleDelete(media._id)}}> Watched It!! </button>
+              <button className="editbttn"onClick={() => handleUpdate(media)}> 
+              Edit </button></div>
+            <h3>{media.title}</h3>
+            <p>Ideal for {media.mood} type vibes</p>
+            <p>You can watch it on {media.platform}</p>
             <p>Notes: {media.notes}</p>
-            <div className="Form">
-      </div>
-            <button onClick={() => {
-              handleDelete(media._id)}}> Delete </button>
-              <button onClick={() => handleUpdate(media)}> 
-              Edit </button>
+            
           </div>
         ))}
       </div>

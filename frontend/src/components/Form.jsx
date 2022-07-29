@@ -85,7 +85,8 @@ const Form = () => {
           <option value="Disney+">Disney+</option>
           <option value="Paramount +">Paramount +</option>
           <option value="Shudder">Shudder</option>
-        </select>
+          <option value="HBO Max">HBO Max</option>
+        </select><br></br>
         <label htmlFor="notes"></label>
         <textarea
           id="notes"
@@ -95,7 +96,7 @@ const Form = () => {
           onChange={handleChange}
           value={formState.notes}
         ></textarea><br></br>
-        <button type="submit">Send</button>
+        <button type="submit">Watch Later</button>
       </form>
       {/* <div className="watchrList">
         <h1>Watchr List:</h1>
