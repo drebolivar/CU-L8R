@@ -2,9 +2,9 @@ import '../App.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
-import Form from './Form'
+import Form from '../components/Form'
 
-const List = () => {
+const Moods = () => {
   const [media, setMedia] = useState([])
   const initialState = {
     title: '',
@@ -23,7 +23,7 @@ const List = () => {
       try {
         if (submitted) {
           let res = await axios.get('http://localhost:3001/api/media')
-          setMedia(res.data)
+          setMedia(res.data.mood.Spoopy_Scaries)
           setSubmitted(false)
           formState('')
           setFormState('')
@@ -87,4 +87,4 @@ const List = () => {
       </div>
   )
 }
-export default List
+export default Moods

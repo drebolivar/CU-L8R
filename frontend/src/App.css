@@ -1,5 +1,5 @@
 HTML {
-  /* background-color: #1d3c66; */
+  background-color: #1d3c66;
   background-image: url("https://freight.cargo.site/w/885/i/3188f12e08a3c9b733a6e176967631e87189869d109fc8a1c85219203a39398d/Screen-Shot-2020-02-07-at-11.16.50-AM.png");
   background-size: cover;
  
@@ -14,6 +14,9 @@ HTML {
   justify-content: center;
   background-image: url("https://i.stack.imgur.com/l5i79.jpg?s=256&g=1");
   background-size:contain;  
+  margin-left: 3%;
+  margin-right: -3%;
+  margin-top: 3%;
 }
 
 .cards{
@@ -27,23 +30,23 @@ HTML {
 
 header {
   background-color:crimson;
-  /* display: flex;
-  flex:none ;
-  justify-content: flex-end;
+  display: flex;
+  flex-direction:column-reverse;
+  /* justify-content: space-around;
   align-items: center; */
-  height: 2em;
+  height: 3em;
 }
 
 a {
   color:gold;
   float: right;
-  justify-content:space-evenly
+  padding-right: 5%;
 }
 
 .grid-main {
 text-align: left;
 display: grid;
-grid-auto-columns: 1 fr 4fr;
+grid-auto-columns: 3 fr 4fr;
 height: 100%;
 /* background-color: #1d3c66; */
 }
@@ -60,8 +63,9 @@ height: 100%;
   grid-column: 1;
   text-align:left;
   justify-content: center;
-  margin-top: 4%;
-  margin-left: 1%;
+  /* margin-top: 4%; */
+  /* margin-left: 2%; */
+  /* margin: auto */
 }
 
 .link {
@@ -86,18 +90,19 @@ height: 100%;
 
 .aboutContainer {
   background-color: rgb(29, 60, 102);
-  justify-content: center;
-  align-items: center;
   color:antiquewhite;
-  display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  width: 100vh;
+  display: block;
+  margin: auto
 }
 
 .updateContainer {
-  background-color: rgb(29, 60, 102);
-  justify-content: center;
-  align-items: center;
+  background-image: url("https://i.stack.imgur.com/l5i79.jpg?s=256&g=1");
+  background-size:contain;  
   color:antiquewhite;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  margin: auto;
+  justify-content: center;
+  width: 50vh;
 }
