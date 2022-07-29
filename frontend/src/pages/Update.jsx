@@ -33,7 +33,7 @@ const UpdateListing = () => {
   }
 
   return (
-    <div>
+    <div className='updateContainer'>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title"></label>
         <input
@@ -43,29 +43,22 @@ const UpdateListing = () => {
           onChange={handleChange}
           value={formState.title}
         />
-        <br></br>
+        <br></br><br></br>
         <label htmlFor="mood"></label>
-        <select id="mood" onChange={handleChange} value={formState.mood}>
-          <option>What mood is this ideal for?</option>
-          <option value="Spoopy Scaries">Spoopy Scaries</option>
-          <option value="Date Night">Date Night</option>
-          <option value="Group Watch">Group Watch</option>
-          <option value="Background Noise">Background Noise</option>
-          <option value="Film School Homework">Film School Homework</option>
-          <option value="Stonesy Bonesy">Stonesy Bonesy</option>
-        </select><br></br>
-        <select id="platform" onChange={handleChange} value={formState.platform}>
-          <option>Where are you watching?</option>
-          <option value="In Theaters">In Theaters</option>
-          <option value="Video On Demand">Video On Demand</option>
-          <option value="Netflix">Netflix</option>
-          <option value="Hulu">Hulu</option>
-          <option value="YouTube">YouTube</option>
-          <option value="Prime Video">Prime Video</option>
-          <option value="Disney+">Disney+</option>
-          <option value="Paramount +">Paramount +</option>
-          <option value="Shudder">Shudder</option>
-        </select>
+        <input
+          type="text"
+          placeholder="What kind of vibe?"
+          id="mood"
+          onChange={handleChange}
+          value={formState.mood}
+        /><br></br><br></br>
+        <input
+          type="text"
+          placeholder="platform?"
+          id="platform"
+          onChange={handleChange}
+          value={formState.platform}
+        /><br></br><br></br>
         <label htmlFor="notes"></label>
         <textarea
           id="notes"

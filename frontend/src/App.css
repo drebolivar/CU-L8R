@@ -83,3 +83,21 @@ height: 100%;
   display: flex;
   justify-content: space-between;
 }
+
+.aboutContainer {
+  background-color: rgb(29, 60, 102);
+  justify-content: center;
+  align-items: center;
+  color:antiquewhite;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.updateContainer {
+  background-color: rgb(29, 60, 102);
+  justify-content: center;
+  align-items: center;
+  color:antiquewhite;
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -56,6 +56,7 @@ const Form = () => {
     <div className="Form">
       <form onSubmit={handleSubmit}>
         <label htmlFor="title"></label>
+        <br></br>
         <input
           type="text"
           placeholder="Title?"
@@ -63,7 +64,7 @@ const Form = () => {
           onChange={handleChange}
           value={formState.title}
         />
-        <br></br>
+        <br></br><br></br>
         <label htmlFor="mood"></label>
         <select id="mood" onChange={handleChange} value={formState.mood}>
           <option>What mood is this ideal for?</option>
@@ -73,7 +74,7 @@ const Form = () => {
           <option value="Background Noise">Background Noise</option>
           <option value="Film School Homework">Film School Homework</option>
           <option value="Stonesy Bonesy">Stonesy Bonesy</option>
-        </select><br></br>
+        </select><br></br><br></br>
         <select id="platform" onChange={handleChange} value={formState.platform}>
           <option>Where are you watching?</option>
           <option value="In Theaters">In Theaters</option>
@@ -86,7 +87,7 @@ const Form = () => {
           <option value="Paramount +">Paramount +</option>
           <option value="Shudder">Shudder</option>
           <option value="HBO Max">HBO Max</option>
-        </select><br></br>
+        </select><br></br><br></br>
         <label htmlFor="notes"></label>
         <textarea
           id="notes"
