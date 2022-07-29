@@ -92,10 +92,12 @@ height: 100%;
   background-color: rgb(29, 60, 102);
   color:antiquewhite;
   justify-content: center;
-  width: 100vh;
-  display: block;
+  width: 100%;
+  display:block;
   margin: auto
 }
+
+
 
 .updateContainer {
   background-image: url("https://i.stack.imgur.com/l5i79.jpg?s=256&g=1");
