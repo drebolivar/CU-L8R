@@ -39,7 +39,7 @@ header {
 }
 
 a {
-  color:gold;
+  color:lawngreen;
   float: right;
   padding-right: 5%;
 }
@@ -108,4 +108,5 @@ height: 100%;
   margin: auto;
   justify-content: center;
   width: 50vh;
+  border: black 3px solid;
 }
