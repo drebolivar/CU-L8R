@@ -1,4 +1,4 @@
-# Watchr-List
+# CU-L8R
 ### Author: Andres Bolivar
 ## [Instagram](http://www.instagram.com/dredose) || [LinkedIn](http://www.linkedin.com/in/drebolivar) || [GitHub](https://github.com/drebolivar)
 ### Date: 07/24/22
@@ -7,7 +7,7 @@
 
 ## **_Description:_**
 
-A localized watchlist for households that have had many a
+CU-L8R (see you later or queue later) is a localized watchlist for households that have had many a
 difficult movie night trying to figure out what to watch.
 
 ---
@@ -37,9 +37,9 @@ difficult movie night trying to figure out what to watch.
 ## **_Stretch Goals_**
 
 - [] 3rd-party API for images/descriptions
-- [] Profiles
+- [] Profiles/Login
 - [] a "Bookmark" option to edit where you may have left off on the movie/series
 
 ## **_Credit:_**
 
-My dog Bucky...for being a good boi.
+My dog Bucky...for being a good boi and watching too much TV with me
