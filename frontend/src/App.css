@@ -13,10 +13,11 @@ HTML {
 .Form{
   justify-content: center;
   background-image: url("https://i.stack.imgur.com/l5i79.jpg?s=256&g=1");
-  background-size:contain;  
+  background-size:contain;
   margin-left: 3%;
   margin-right: -3%;
   margin-top: 3%;
+  max-width: 270px;
   border: black 3px solid;
 }
 
