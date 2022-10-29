@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import CUL8R from '../assets/CUL8Rlogo.png'
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
         <Link to="/"> Moods </Link>
         <Link to="/"> Just Pick For Me! </Link>
       </div>
-      <div className="title"> CU-L8R </div>
+      <img className="title" src={CUL8R} alt="logo" />
     </header>
   )
 }
