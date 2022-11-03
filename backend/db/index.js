@@ -7,7 +7,9 @@ const mongoose = require('mongoose')
 //     : 'mongodb://127.0.0.1:27017/watcherDatabase'
 
 mongoose
-  .connect('mongodb://127.0.0.1:27017/watchrDatabase')
+  .connect(
+    'mongodb+srv://drebolivar:drebolivar@drecluster.zygeidm.mongodb.net/?retryWrites=true&w=majority'
+  )
   .then(() => {
     console.log('Successfully connected to MongoDB!')
   })

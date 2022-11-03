@@ -3,6 +3,7 @@ const routes = require('./routes')
 const db = require('./db')
 const logger = require('morgan')
 const cors = require('cors')
+require('dotenv').config()
 
 const PORT = 3001
 
@@ -29,4 +30,6 @@ app.post('/media', async (req, res) => {
 app.put('/media/:id')
 app.delete('/media/:id')
 
-app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
+app.listen(process.env.PORT || 3001, () =>
+  console.log(`Listening on port: ${PORT}`)
+)
