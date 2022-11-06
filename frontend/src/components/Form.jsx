@@ -2,6 +2,7 @@ import '../App.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
+const url = 'https://cul8r.adaptable.app/'
 const Form = () => {
   const [media, setMedia] = useState([])
   const initialState = {
@@ -12,17 +13,17 @@ const Form = () => {
   }
   const [formState, setFormState] = useState(initialState)
   const [submitted, setSubmitted] = useState(true)
-  const [description, setDestription] = useState('')
+  // const [description, setDestription] = useState('')
 
   useEffect(() => {
     const getMedia = async () => {
       try {
         if (submitted) {
-          let res = await axios.get('http://localhost:3001/api/media')
+          let res = await axios.get(url + '/api/media')
           setMedia(res.data)
           setSubmitted(false)
-          formState('')
-          setFormState('')
+          // formState('')
+          // setFormState('')
         }
       } catch (error) {
         console.log(error)
@@ -34,23 +35,23 @@ const Form = () => {
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
- 
+
   const handleSubmit = async (event) => {
     event.preventDefault()
-    let res = await axios.post('http://localhost:3001/api/media', formState)
+    let res = await axios.post(url + '/api/media', formState)
     console.log(res)
     console.log(formState)
     setFormState(initialState)
     setSubmitted(true)
-    window.location.reload(false);
+    window.location.reload(false)
   }
 
   const handleDelete = async (_id) => {
-    const res = await axios .delete('http://localhost:3001/api/media/${_id}')
-    .catch((error) => console.log(error))
+    const res = await axios
+      .delete(url + '/api/media/${_id}')
+      .catch((error) => console.log(error))
     console.log(res.data.cards)
   }
-
 
   return (
     <div className="Form">
@@ -64,7 +65,8 @@ const Form = () => {
           onChange={handleChange}
           value={formState.title}
         />
-        <br></br><br></br>
+        <br></br>
+        <br></br>
         <label htmlFor="mood"></label>
         <select id="mood" onChange={handleChange} value={formState.mood}>
           <option>What mood is this ideal for?</option>
@@ -74,8 +76,14 @@ const Form = () => {
           <option value="Background Noise">Background Noise</option>
           <option value="Film School Homework">Film School Homework</option>
           <option value="Stonesy Bonesy">Stonesy Bonesy</option>
-        </select><br></br><br></br>
-        <select id="platform" onChange={handleChange} value={formState.platform}>
+        </select>
+        <br></br>
+        <br></br>
+        <select
+          id="platform"
+          onChange={handleChange}
+          value={formState.platform}
+        >
           <option>Where are you watching?</option>
           <option value="In Theaters">In Theaters</option>
           <option value="Video On Demand">Video On Demand</option>
@@ -87,7 +95,9 @@ const Form = () => {
           <option value="Paramount +">Paramount +</option>
           <option value="Shudder">Shudder</option>
           <option value="HBO Max">HBO Max</option>
-        </select><br></br><br></br>
+        </select>
+        <br></br>
+        <br></br>
         <label htmlFor="notes"></label>
         <textarea
           id="notes"
@@ -96,7 +106,8 @@ const Form = () => {
           rows="10"
           onChange={handleChange}
           value={formState.notes}
-        ></textarea><br></br>
+        ></textarea>
+        <br></br>
         <button type="submit">Watch Later</button>
       </form>
       {/* <div className="watchrList">

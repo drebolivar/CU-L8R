@@ -1,8 +1,10 @@
 import '../App.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Form from './Form'
+
+const url = 'https://cul8r.adaptable.app/'
 
 const List = () => {
   const [media, setMedia] = useState([])
@@ -22,7 +24,7 @@ const List = () => {
     const getMedia = async () => {
       try {
         if (submitted) {
-          let res = await axios.get('http://localhost:3001/api/media')
+          let res = await axios.get(url + '/api/media')
           setMedia(res.data)
           setSubmitted(false)
           formState('')
@@ -36,8 +38,9 @@ const List = () => {
   }, [submitted])
 
   const handleDelete = async (_id) => {
-    let res = await axios.delete(`http://localhost:3001/api/media/${_id}`)
-    .catch((error) => console.log(error))
+    let res = await axios
+      .delete(url + `api/media/${_id}`)
+      .catch((error) => console.log(error))
     console.log(res.data.cards)
     setFormState(initialState)
     setSubmitted(true)
@@ -46,7 +49,7 @@ const List = () => {
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
-//setAttacks(res.data.getAttacks.hardAttacks)
+  //setAttacks(res.data.getAttacks.hardAttacks)
   // const handleUpdate = async (_id, media) => {
   //   const res = await axios
   //     .put(`http://localhost:3001/api/media/${_id}`, {notes} )
@@ -56,8 +59,7 @@ const List = () => {
   const handleUpdate = (media) => {
     navigate('../Update', { state: { id: media } })
   }
-  
- 
+
   // const handleSubmit = async (event) => {
   //   event.preventDefault()
   //   let res = await axios.post('http://localhost:3001/api/media', formState)
@@ -69,22 +71,31 @@ const List = () => {
   // }
 
   return (
-      <div className="watchrList">
-        {/* <Form /> */}
-        {media.map((media) => (
-          <div className="cards" key={media._id}>
-            <div className="buttondiv"><button className="watchedbttn" onClick={() => {
-              handleDelete(media._id)}}> Watched It!! </button>
-              <button className="editbttn"onClick={() => handleUpdate(media)}> 
-              Edit </button></div>
-            <h3>{media.title}</h3>
-            <p>Ideal for {media.mood} type vibes</p>
-            <p>You can watch it on {media.platform}</p>
-            <p>Notes: {media.notes}</p>
-            
+    <div className="watchrList">
+      {/* <Form /> */}
+      {media.map((media) => (
+        <div className="cards" key={media._id}>
+          <div className="buttondiv">
+            <button
+              className="watchedbttn"
+              onClick={() => {
+                handleDelete(media._id)
+              }}
+            >
+              {' '}
+              Watched It!!{' '}
+            </button>
+            <button className="editbttn" onClick={() => handleUpdate(media)}>
+              Edit{' '}
+            </button>
           </div>
-        ))}
-      </div>
+          <h3>{media.title}</h3>
+          <p>Ideal for {media.mood} type vibes</p>
+          <p>You can watch it on {media.platform}</p>
+          <p>Notes: {media.notes}</p>
+        </div>
+      ))}
+    </div>
   )
 }
 export default List
