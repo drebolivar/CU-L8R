@@ -13,7 +13,10 @@ const About = () => {
       memory or told myself i reached the elbow when i totally didn't. Does it
       matter? What are memories? What is existence? Who are "we" even? Here's me
       and my dog Bucky:
-      <img src="https://i.imgur.com/a2QFk7y.jpg?1"></img>
+      <img
+        src="https://i.imgur.com/a2QFk7y.jpg?1"
+        alt="a boy and his boi"
+      ></img>
       {/* </span> */}
     </div>
   )

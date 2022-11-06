@@ -2,7 +2,7 @@ import '../App.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import Form from '../components/Form'
+// import Form from '../components/Form'
 
 const url = 'https://cul8r.adaptable.app/'
 
@@ -16,7 +16,7 @@ const Moods = () => {
   }
   const [formState, setFormState] = useState(initialState)
   const [submitted, setSubmitted] = useState(true)
-  const [notes, setNotes] = useState('')
+  // const [notes, setNotes] = useState('')
 
   let navigate = useNavigate()
 
@@ -27,7 +27,7 @@ const Moods = () => {
           let res = await axios.get(url + '/api/media')
           setMedia(res.data.mood.Spoopy_Scaries)
           setSubmitted(false)
-          formState('')
+          // formState('')
           setFormState('')
         }
       } catch (error) {
@@ -46,9 +46,9 @@ const Moods = () => {
     setSubmitted(true)
     _id.target.reset()
   }
-  const handleChange = (event) => {
-    setFormState({ ...formState, [event.target.id]: event.target.value })
-  }
+  // const handleChange = (event) => {
+  //   setFormState({ ...formState, [event.target.id]: event.target.value })
+  // }
   //setAttacks(res.data.getAttacks.hardAttacks)
   // const handleUpdate = async (_id, media) => {
   //   const res = await axios

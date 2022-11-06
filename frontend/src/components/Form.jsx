@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const url = 'https://cul8r.adaptable.app/'
+
 const Form = () => {
-  const [media, setMedia] = useState([])
+  const [, setMedia] = useState([])
   const initialState = {
     title: '',
     mood: '',
@@ -46,12 +47,12 @@ const Form = () => {
     window.location.reload(false)
   }
 
-  const handleDelete = async (_id) => {
-    const res = await axios
-      .delete(url + '/api/media/${_id}')
-      .catch((error) => console.log(error))
-    console.log(res.data.cards)
-  }
+  // const handleDelete = async (_id) => {
+  //   const res = await axios
+  //     .delete(url + '/api/media/${_id}')
+  //     .catch((error) => console.log(error))
+  //   console.log(res.data.cards)
+  // }
 
   return (
     <div className="Form">
