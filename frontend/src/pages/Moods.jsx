@@ -28,7 +28,7 @@ const Moods = () => {
           setMedia(res.data.mood.Spoopy_Scaries)
           setSubmitted(false)
           // formState('')
-          setFormState('')
+          // setFormState('')
         }
       } catch (error) {
         console.log(error)

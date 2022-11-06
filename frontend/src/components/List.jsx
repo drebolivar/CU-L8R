@@ -28,7 +28,7 @@ const List = () => {
           setMedia(res.data)
           setSubmitted(false)
           // formState('')
-          setFormState('')
+          // setFormState('')
         }
       } catch (error) {
         console.log(error)
