@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
+const url = 'https://cul8r.adaptable.app/'
+
 const UpdateListing = () => {
   // I used this as a reference to get the id over: https://stackoverflow.com/questions/72017435/how-can-i-pass-parameters-to-route-with-navigate-function-in-react
-  
+
   let location = useLocation()
   let navigate = useNavigate()
 
@@ -12,7 +14,7 @@ const UpdateListing = () => {
     title: `${location.state.id.title}`,
     mood: `${location.state.id.mood}`,
     platform: `${location.state.id.platform}`,
-    notes: `${location.state.id.notes}`,
+    notes: `${location.state.id.notes}`
   }
 
   const [formState, setFormState] = useState(initialState)
@@ -24,7 +26,7 @@ const UpdateListing = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     let res = await axios.put(
-      `http://localhost:3001/api/media/${location.state.id._id}`,
+      url + `/api/media/${location.state.id._id}`,
       formState
     )
     console.log(res)
@@ -33,7 +35,7 @@ const UpdateListing = () => {
   }
 
   return (
-    <div className='updateContainer'>
+    <div className="updateContainer">
       <form onSubmit={handleSubmit}>
         <label htmlFor="title"></label>
         <input
@@ -43,7 +45,8 @@ const UpdateListing = () => {
           onChange={handleChange}
           value={formState.title}
         />
-        <br></br><br></br>
+        <br></br>
+        <br></br>
         <label htmlFor="mood"></label>
         <input
           type="text"
@@ -51,14 +54,18 @@ const UpdateListing = () => {
           id="mood"
           onChange={handleChange}
           value={formState.mood}
-        /><br></br><br></br>
+        />
+        <br></br>
+        <br></br>
         <input
           type="text"
           placeholder="platform?"
           id="platform"
           onChange={handleChange}
           value={formState.platform}
-        /><br></br><br></br>
+        />
+        <br></br>
+        <br></br>
         <label htmlFor="notes"></label>
         <textarea
           id="notes"
@@ -67,7 +74,8 @@ const UpdateListing = () => {
           rows="10"
           onChange={handleChange}
           value={formState.notes}
-        ></textarea><br></br>
+        ></textarea>
+        <br></br>
         <button type="submit">Send</button>
       </form>
     </div>
