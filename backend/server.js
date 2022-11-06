@@ -31,5 +31,5 @@ app.put('/media/:id')
 app.delete('/media/:id')
 
 app.listen(process.env.PORT || 3001, () =>
-  console.log(`Listening on port: ${PORT}`)
+  console.log(`Listening on port: ${port}`)
 )
