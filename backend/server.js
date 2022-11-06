@@ -21,15 +21,15 @@ app.get('/*', (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)
 })
 
-// app.post('/media', async (req, res) => {
-//   console.log('here is the body', req.body)
-//   let newMedia = await Media.create(req.body)
-//   res.send(newMedia)
-// })
+app.post('/media', async (req, res) => {
+  console.log('here is the body', req.body)
+  let newMedia = await Media.create(req.body)
+  res.send(newMedia)
+})
 
 app.put('/media/:id')
 app.delete('/media/:id')
 
-app.listen(process.env.PORT || 3001, () =>
+app.listen(port, () => {
   console.log(`Listening on port: ${port}`)
-)
+})
