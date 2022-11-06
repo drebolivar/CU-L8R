@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b38a93b5.css",
+    "main.js": "/static/js/main.f72f5cb6.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/CUL8Rlogo.png": "/static/media/CUL8Rlogo.f2abf1137a201eab0818.png",
+    "index.html": "/index.html",
+    "main.b38a93b5.css.map": "/static/css/main.b38a93b5.css.map",
+    "main.f72f5cb6.js.map": "/static/js/main.f72f5cb6.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b38a93b5.css",
+    "static/js/main.f72f5cb6.js"
+  ]
+}
