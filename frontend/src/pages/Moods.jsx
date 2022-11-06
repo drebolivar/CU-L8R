@@ -14,7 +14,7 @@ const Moods = () => {
     platform: '',
     notes: ''
   }
-  const [formState, setFormState] = useState(initialState)
+  const setFormState = useState(initialState)
   const [submitted, setSubmitted] = useState(true)
   // const [notes, setNotes] = useState('')
 
@@ -38,9 +38,8 @@ const Moods = () => {
   }, [submitted])
 
   const handleDelete = async (_id) => {
-    let res = await axios
-      .delete(url + '/api/media/${_id}')
-      .catch((error) => console.log(error))
+    let res = await axios.delete(url + '/api/media/${_id}')
+    // .catch((error) => console.log(error))
     console.log(res.data.cards)
     setFormState(initialState)
     setSubmitted(true)

@@ -14,7 +14,7 @@ const List = () => {
     platform: '',
     notes: ''
   }
-  const [formState, setFormState] = useState(initialState)
+  const setFormState = useState(initialState)
   const [submitted, setSubmitted] = useState(true)
   // const [notes, setNotes] = useState('')
 
