@@ -28,10 +28,10 @@ difficult movie night trying to figure out what to watch.
 
 ## **_Stretch Goals_**
 
-- [] 3rd-party API for titles/images/descriptions
-- [] Profiles/Login
-- [] a "Bookmark" option to edit where you may have left off on the movie/series
-- [] Randomizer
+- [ ] 3rd-party API for titles/images/descriptions
+- [ ] Profiles/Login
+- [ ] a "Bookmark" option to edit where you may have left off on the movie/series
+- [ ] Randomizer
 
 ## **_Credit:_**
 
