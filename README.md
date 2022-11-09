@@ -18,6 +18,11 @@ difficult movie night trying to figure out what to watch.
   - NodeJS
 
 ---
+## **_Resources_**
+- [Github Repo](https://github.com/drebolivar/CU-L8R)
+- [Deployed Site](https://cul8r.netlify.app/)
+
+---
 ## **_Stretch Goals_**
 - [ ] 3rd-party API for titles/images/descriptions
 - [ ] Profiles/Login
