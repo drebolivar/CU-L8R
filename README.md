@@ -7,7 +7,7 @@
 
 ## **_Description:_**
 
-CU-L8R (see you later or queue later) is a localized watchlist for households that have had many a
+CU-L8R ("see you later" or "queue later") is a localized watchlist for households that have had many a
 difficult movie night trying to figure out what to watch.
 
 ---
@@ -22,21 +22,13 @@ difficult movie night trying to figure out what to watch.
 
 ---
 
-## **_Links_**
-
-- [Trello/Tasks](https://trello.com/b/C1RYLBTY/watchr-list)
-- Component Hierarchy Diagram (in repo)
-- Entity Relationship Diagram (in repo)
-
----
-
 ## **_Screenshots:_**
-
+![Screenshot](https://i.imgur.com/DuWc6El.png)
 ---
 
 ## **_Stretch Goals_**
 
-- [] 3rd-party API for images/descriptions
+- [] 3rd-party API for titles/images/descriptions
 - [] Profiles/Login
 - [] a "Bookmark" option to edit where you may have left off on the movie/series
 
