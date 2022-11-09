@@ -1,10 +1,10 @@
+![CU-L8R](frontend/src/assets/CUL8Rlogo.png)
 # CU-L8R
 ### Author: Andres Bolivar
 ## [Instagram](http://www.instagram.com/dredose) || [LinkedIn](http://www.linkedin.com/in/drebolivar) || [GitHub](https://github.com/drebolivar)
 ### Date: 07/24/22
 
 ---
-
 ## **_Description:_**
 
 CU-L8R ("see you later" or "queue later") is a localized watchlist for households that have had many a
