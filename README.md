@@ -1,7 +1,7 @@
 ![CU-L8R](frontend/src/assets/CUL8Rlogo.png)
 # CU-L8R
 ### Author: Andres Bolivar
-## [Instagram](http://www.instagram.com/dredose) || [LinkedIn](http://www.linkedin.com/in/drebolivar) || [GitHub](https://github.com/drebolivar)
+## [Github](http://www.github.com/drebolivar) | [Portfolio](http://drebolivar.github.io/portfolio) | [LinkedIn](http://www.linkedin.com/in/drebolivar) | [Instagram](http://www.instagram.com/dredose) 
 ### Date: 07/24/22
 
 ---
